@@ -1,32 +1,22 @@
 // class component
 // function component
 import React from "react";
+import DisplayInfo from "./DisplayInfo";
+import UserInfo from "./UserInfo";
 
 class MyComponent extends React.Component {
     //JSX
-
-    state = {
-        name: 'Hoai Thu',
-        age: 27,
-        address: 'Hai Duong'
-    }
-
-    handleClick(event) {
-        console.log('Xin chao...')
-        console.log('My name is ', this.state.name)
-    }
-
-    handleOnMouseOver(event) {
-        console.log(event.pageX)
-    }
-
     render() {
+        const myInfo = ['sa', 'as', 'qw']
         return (
             <div>
-                My name is {this.state.name} from {this.state.address}
-                <button onClick={this.handleClick}>Click me</button>
-                <button onMouseOver={this.handleOnMouseOver}>Hover me</button>
+                <UserInfo />
+                <br /><br />
+                <DisplayInfo name="HieuFoden mc" age="30" />
+                <hr />
+                <DisplayInfo name="Duong Thi Hoai Thu" age={27} myInfo={myInfo} />
             </div>
+
         );
     }
 }
