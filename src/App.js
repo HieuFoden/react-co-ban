@@ -14,10 +14,10 @@ const App = () => {
         <div className='sidenav-container'>
 
         </div>
-      </div>
 
-      <div className='app-content'>
-        <Outlet />
+        <div className='app-content'>
+          <Outlet />
+        </div>
       </div>
     </div>
   );
