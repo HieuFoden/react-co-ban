@@ -14,9 +14,11 @@ import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import './SideBar.scss'
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = (props) => {
     const { image, collapsed, toggled, handleToggleSidebar } = props;
+    const navigate = useNavigate();
     return (
         <>
             <ProSidebar
@@ -88,6 +90,9 @@ const SideBar = (props) => {
                                 HieuThu
                             </span>
                         </a>
+                    </div>
+                    <div className='text-center'>
+                        <span className='back' onClick={() => { navigate('/') }}>	&lt;&lt;Go to Homepage</span >
                     </div>
                 </SidebarFooter>
             </ProSidebar>

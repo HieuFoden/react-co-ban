@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import './Login.scss';
+import { useNavigate } from 'react-router-dom';
+
 const Login = (props) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         alert('me')
@@ -11,8 +14,9 @@ const Login = (props) => {
 
     return (
         <div className="login-container">
-            <div className='header col-4 mx-auto'>
-                Don't have an account yet?
+            <div className='header'>
+                <span>Don't have an account yet?</span>
+                <button>Sign-up</button>
             </div>
 
             <div className='title col-4 mx-auto'>
@@ -47,6 +51,9 @@ const Login = (props) => {
                         className='btn-submit'
                         onClick={() => handleLogin()}
                     >Login to Hybrid Technologies</button>
+                </div>
+                <div className='text-center'>
+                    <span className='back' onClick={() => { navigate('/') }}>	&lt;&lt;Go to Homepage</span >
                 </div>
             </div>
         </div>
