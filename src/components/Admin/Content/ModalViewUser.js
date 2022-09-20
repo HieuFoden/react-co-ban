@@ -90,7 +90,7 @@ const ModalViewUser = (props) => {
                 className='modal-add-user'
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Update user.</Modal.Title>
+                    <Modal.Title>User Profile.</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">

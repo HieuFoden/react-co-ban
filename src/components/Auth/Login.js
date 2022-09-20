@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import { postLogin } from '../../services/apiService';
+import { toast } from 'react-toastify';
 
 const Login = (props) => {
 
@@ -8,8 +10,17 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = () => {
-        alert('me')
+    const handleLogin = async () => {
+        // validate
+
+        //submit api
+        let data = await postLogin(email, password);
+        if (data && +data.EC === 0) {
+            toast.success(data.EM);
+
+        } if (data && +data.EC !== 0) {
+            toast.error(data.EM);
+        }
     }
 
     return (
@@ -30,7 +41,7 @@ const Login = (props) => {
             <div className='content-form col-4 mx-auto'>
                 <div className='form-group'>
                     <label>Email</label>
-                    <input type={"email"}
+                    <input type={"email"} required
                         className="form-control"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)} />
@@ -38,7 +49,7 @@ const Login = (props) => {
                 <div className='form-group'>
                     <label>Password</label>
                     <input
-                        type={"password"}
+                        type={"password"} required
                         className="form-control"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
